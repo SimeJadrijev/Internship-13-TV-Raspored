@@ -6,7 +6,7 @@
 @import "./sections/header.css";
 
 *{
-    font-family: "Fuse-text";
+    font-family: "Fuse";
     box-sizing: border-box;
     margin: 0;
 }
