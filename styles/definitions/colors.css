@@ -3,5 +3,6 @@
     --dark-blue: #015587;
     --darker-blue: #00446c;
     --light-blue: #01B2FF;
-    --black: red;
+    --black: --black;
+    --gray: #e5e5e5;
 }

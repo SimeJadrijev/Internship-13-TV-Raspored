@@ -5,6 +5,7 @@
 /* sections */
 @import "./sections/header.css";
 @import "./sections/hero-section.css";
+@import "./sections/schedules-intro.css";
 
 *{
     font-family: "Fuse";
