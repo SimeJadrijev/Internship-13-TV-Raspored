@@ -51,3 +51,56 @@ nav a:last-child:hover{
 #hamburger-menu{
     display: none;
 }
+
+#close-icon{
+    display: none;
+}
+
+.mobile-navigation{
+    display: none;
+}
+@media only screen and (min-width: 375px) and (max-width: 768px) {
+    
+    *{
+        overflow: hidden;
+        max-width: 100%;
+    }
+    header{
+        display: flex;
+        justify-content: space-between;
+        padding: 5px 20px;
+    }
+    .header-title{
+        margin: 0;
+    }
+    .header-title h1{
+        display: none;
+    }
+    
+    #hamburger-menu{
+        display: block;
+        width: 40px;
+
+    }
+    nav{
+        display: none;
+    }
+    .mobile-navigation{
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--dark-blue);
+        border-top: 1px solid var(--light-blue);
+        padding: 20px 0;
+    }
+    .mobile-navigation a{
+        color: var(--white);
+    }
+
+    #close-icon{
+        display: none;
+        width: 40px;
+    }
+
+}
