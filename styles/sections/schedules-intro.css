@@ -5,7 +5,7 @@
     align-items: center;
     gap: 60px;
 }
-.schedules-intro h2{
+.subtitle{
     font-family: "Fuse";
     color: var(--dark-blue);
     text-transform: uppercase;
@@ -24,7 +24,11 @@
     border-radius: 5px;
     background-color: var(--gray);
     overflow: hidden;
-
+}
+.channel-card:hover{
+    -webkit-box-shadow: 0px 0px 19px -3px rgba(13,0,255,1);
+    -moz-box-shadow: 0px 0px 19px -3px rgba(13,0,255,1);
+    box-shadow: 0px 0px 19px -3px rgba(13,0,255,1);
 }
 .channel-card h2{
     padding: 10px;
@@ -63,7 +67,7 @@
 
 @media only screen and (min-width: 375px) and (max-width: 768px) {
 
-    .schedules-intro h2{
+    .subtitle{
         text-align: center;
         margin: 0 10px;
     }
