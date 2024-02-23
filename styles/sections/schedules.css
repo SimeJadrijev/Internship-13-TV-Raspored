@@ -43,3 +43,37 @@
 .channel-option-active{
     border: 2px solid var(--dark-blue);
 }
+
+.mobile-channel-option{
+    display: none;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 768px) {
+    .channel-option{
+        display: none;
+    }
+
+    .mobile-channel-option{
+        color: var(--white);
+        display: flex;
+        text-decoration: none;
+        color: var(--light-blue);
+        padding: 5px;
+    }
+
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1100px) {
+    .channel-option{
+        display: none;
+    }
+
+    .mobile-channel-option{
+        color: var(--white);
+        display: flex;
+        text-decoration: none;
+        color: var(--light-blue);
+        padding: 5px;
+        font-size: 25px;
+    }
+}
