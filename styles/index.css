@@ -11,4 +11,5 @@
     font-family: "Fuse";
     box-sizing: border-box;
     margin: 0;
+    overflow: visible;
 }

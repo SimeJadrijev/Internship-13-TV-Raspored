@@ -24,6 +24,7 @@
     border-radius: 5px;
     background-color: var(--gray);
     overflow: hidden;
+
 }
 .channel-card h2{
     padding: 10px;
@@ -59,5 +60,23 @@
     width: 100%;
 }
 
+@media only screen and (min-width: 375px) and (max-width: 768px) {
+
+    .schedules-intro h2{
+        text-align: center;
+        margin: 0 10px;
+    }
+
+    .channel-cards-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    .channel-card h2{
+        margin: 0;
+    }
+
+}
 
 
