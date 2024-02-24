@@ -76,13 +76,17 @@
     text-transform: uppercase;
     justify-content: center;
     color: var(--dark-blue);
+    text-align: center;
 }
 
 .replay{
     color: red;
 }
-.dump-tv-item, .dump-sport-item{
+.dump-tv-item, .dump-sport-item, .dump-culture-item, .dump-premium-item{
     display: none;
+}
+.dump-tv-item{
+    display: flex;
 }
 
 
