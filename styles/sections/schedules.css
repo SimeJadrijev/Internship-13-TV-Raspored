@@ -81,7 +81,7 @@
 .replay{
     color: red;
 }
-.dump-tv-item{
+.dump-tv-item, .dump-sport-item{
     display: none;
 }
 
