@@ -1,0 +1,25 @@
+.admin-panel{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.add-new-content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+}
+
+.channel-choice{
+    display: flex;
+    flex-direction: column;
+}
+
+.replay-choice{
+    display: flex;
+    flex-direction: column;
+}

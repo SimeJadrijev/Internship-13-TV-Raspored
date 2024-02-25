@@ -7,6 +7,7 @@
 @import "./sections/hero-section.css";
 @import "./sections/schedules-intro.css";
 @import "./sections/schedules.css";
+@import "./sections/admin-panel.css";
 
 
 *{
@@ -15,3 +16,18 @@
     margin: 0;
     overflow: visible;
 }
+
+.preview-tooltip {
+    display:flex;
+    width: 100%;
+    height: 200px;
+    justify-content: space-between;
+    color: #000;
+    background-color: #fff;
+    overflow: hidden;
+}
+  
+.preview-tooltip div {
+    padding: 4px 8px;
+}
+  
