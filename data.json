@@ -33,7 +33,7 @@
         "category": "Informativni program",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump TV"
     },
     {
         "id": 4,
@@ -45,7 +45,7 @@
         "category": "Informativni program",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump TV"
     },
     {
         "id": 5,
@@ -57,7 +57,7 @@
         "category": "Vijesti",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump TV"
     },
     {
         "id": 6,
@@ -69,7 +69,7 @@
         "category": "Podcast",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump TV"
     },
     {
         "id": 7,
@@ -81,7 +81,7 @@
         "category": "Dokumentarni film",
         "is_replay": true,
         "description": "",
-        "channel": ""
+        "channel": "Dump TV"
     },
     {
         "id": 8,
@@ -93,7 +93,7 @@
         "category": "Vijesti",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump TV"
     },
     {
         "id": 9,
@@ -105,7 +105,7 @@
         "category": "Infomativni program",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump TV"
     },
     {
         "id": 10,
@@ -117,7 +117,7 @@
         "category": "Vijesti",
         "is_replay": true,
         "description": "",
-        "channel": ""
+        "channel": "Dump TV"
     },
     {
         "id": 11,
@@ -129,7 +129,7 @@
         "category": "UFC",
         "is_replay": true,
         "description": "",
-        "channel": ""
+        "channel": "Dump Sport"
     },
     {
         "id": 12,
@@ -141,7 +141,7 @@
         "category": "KOŠARKA",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Sport"
     },
     {
         "id": 13,
@@ -153,7 +153,7 @@
         "category": "Informativni program",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Sport"
     },
     {
         "id": 14,
@@ -165,7 +165,7 @@
         "category": "Vijesti",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Sport"
     },
     {
         "id": 15,
@@ -177,7 +177,7 @@
         "category": "Vaterpolo",
         "is_replay": true,
         "description": "",
-        "channel": ""
+        "channel": "Dump Sport"
     },
     {
         "id": 16,
@@ -189,7 +189,7 @@
         "category": "Nogomet",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Sport"
     },
     {
         "id": 17,
@@ -201,7 +201,7 @@
         "category": "Podcast",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Sport"
     },
     {
         "id": 18,
@@ -213,7 +213,7 @@
         "category": "Tenis",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Sport"
     },
     {
         "id": 19,
@@ -225,7 +225,7 @@
         "category": "Atletika",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Sport"
     },
     {
         "id": 20,
@@ -237,7 +237,7 @@
         "category": "Judo",
         "is_replay": true,
         "description": "",
-        "channel": ""
+        "channel": "Dump Sport"
     },
     {
         "id": 21,
@@ -249,7 +249,7 @@
         "category": "Film",
         "is_replay": true,
         "description": "",
-        "channel": ""
+        "channel": "Dump Culture"
     },
     {
         "id": 22,
@@ -261,7 +261,7 @@
         "category": "Serija",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Culture"
     },
     {
         "id": 23,
@@ -273,7 +273,7 @@
         "category": "Predstava",
         "is_replay": true,
         "description": "",
-        "channel": ""
+        "channel": "Dump Culture"
     },
     {
         "id": 24,
@@ -285,7 +285,7 @@
         "category": "MUZIKA",
         "is_replay": true,
         "description": "",
-        "channel": ""
+        "channel": "Dump Culture"
     },
     {
         "id": 25,
@@ -297,7 +297,7 @@
         "category": "Film",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Culture"
     },
     {
         "id": 26,
@@ -309,7 +309,7 @@
         "category": "Film",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Culture"
     },
     {
         "id": 27,
@@ -321,7 +321,7 @@
         "category": "Informativni program",
         "is_replay": true,
         "description": "",
-        "channel": ""
+        "channel": "Dump Culture"
     },
     {
         "id": 28,
@@ -333,7 +333,7 @@
         "category": "Dokumentarni film",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Culture"
     },
     {
         "id": 29,
@@ -345,7 +345,7 @@
         "category": "Serija",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Culture"
     },
     {
         "id": 30,
@@ -357,7 +357,7 @@
         "category": "Informativni program",
         "is_replay": true,
         "description": "",
-        "channel": ""
+        "channel": "Dump Premium"
     },
     {
         "id": 31,
@@ -369,7 +369,7 @@
         "category": "BTS",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Premium"
     },
     {
         "id": 32,
@@ -381,7 +381,7 @@
         "category": "Informativni program",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Premium"
     },
     {
         "id": 33,
@@ -393,7 +393,7 @@
         "category": "Informativni program",
         "is_replay": true,
         "description": "",
-        "channel": ""
+        "channel": "Dump Premium"
     },
     {
         "id": 34,
@@ -405,7 +405,7 @@
         "category": "BTS",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Premium"
     },
     {
         "id": 35,
@@ -417,7 +417,7 @@
         "category": "Film",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Premium"
     },
     {
         "id": 36,
@@ -429,7 +429,7 @@
         "category": "Podcast",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Premium"
     },
     {
         "id": 37,
@@ -441,7 +441,7 @@
         "category": "BTS",
         "is_replay": true,
         "description": "",
-        "channel": ""
+        "channel": "Dump Premium"
     },
     {
         "id": 38,
@@ -453,7 +453,7 @@
         "category": "BTS",
         "is_replay": false,
         "description": "",
-        "channel": ""
+        "channel": "Dump Premium"
     },
     {
         "id": 39,
@@ -465,6 +465,6 @@
         "category": "Informativni program",
         "is_replay": true,
         "description": "",
-        "channel": ""
+        "channel": "Dump Premium"
     }
 ]
