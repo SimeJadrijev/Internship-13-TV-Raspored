@@ -1,4 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  FillTvPrograms("Dump TV");
+  
+  const channelOptions = document.querySelectorAll(".channel-option");
+  channelOptions[0].classList.add("channel-option-active");
+
   // const tvPrograms = document.querySelectorAll(".tv-program a");
   // tvPrograms.forEach( (el) => {
   //   el.addEventListener("click", async () => {
@@ -9,11 +15,36 @@ document.addEventListener("DOMContentLoaded", () => {
   // })
 })
 
-document.addEventListener("DOMContentLoaded", async () => {
+const channelOptions = document.querySelectorAll(".channel-option"); 
+
+channelOptions.forEach(option => {
+
+  option.addEventListener("click", (e) => {
+
+    const activeChannelOption = document.querySelector(".channel-option-active");
+    activeChannelOption.classList.remove("channel-option-active");
+
+    e.currentTarget.classList.add("channel-option-active");
+
+    const currentCategory = e.currentTarget.dataset.type;
+    FillTvPrograms(`Dump ${currentCategory}`);
+
+  })
+
+});
+
+async function FillTvPrograms(category) {
+
   const programs = await ReadData();
 
   const tvProgramContainer = document.querySelector(".tv-program");
-  const tvPrograms = FillTvPrograms(programs, "Dump TV");
+  tvProgramContainer.innerHTML = "";
+
+  const tvPrograms = programs.map(program => {
+
+    return program.channel === category ? program : null; 
+
+  });
 
   tvPrograms.forEach(program => {
     if (program) {
@@ -31,18 +62,6 @@ document.addEventListener("DOMContentLoaded", async () => {
       tvProgramContainer.append(programInstance); 
 
     }      
-  });
-  
-  const channelOptions = document.querySelectorAll(".channel-option");
-  channelOptions[0].classList.add("channel-option-active");
-})
-
-function FillTvPrograms(programs, category) {
-
-  return programs.map(program => {
-
-    return program.channel === category ? program : null; 
-
   });
   
 }
