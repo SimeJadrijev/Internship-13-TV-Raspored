@@ -38,23 +38,20 @@ async function FillTvPrograms(category) {
     program.addEventListener("click", async (e) => {
       let popupModal = document.querySelector(".popup");
 
-      const wantedProgram = tvPrograms.find(
-        (el) => el?.id === Number(e.currentTarget.dataset.id)
-      );
+      const wantedProgram = FindProgramById(tvPrograms, e);
+
       let pin = 1111;
       try {
-        if (!wantedProgram.for_children) {
-          let accessGranted = await CheckPin(pin);
-          if (accessGranted) {
+        if (!wantedProgram.for_children) {  // if the chosen program is labeled as "not for children"
+          let accessGranted = await CheckPin(pin);  //check the pin
+          if (accessGranted) {                // if the pin is correct, show the popup modal (program details)
             popupModal.style.display = "flex";
-            const body = document.querySelector("body");
-            body.classList.add("disable-scroll");
             popupModal = FillInTheModal(popupModal, wantedProgram);
           }
-        } else {
-          popupModal.style.display = "flex";
-          const body = document.querySelector("body");
-          body.classList.add("disable-scroll");
+        } 
+        else {    // if the program is labeled as "for children", procede to show the popup modal without the pin
+          popupModal.style.display = "flex";  
+          DisableScroll();
           popupModal = FillInTheModal(popupModal, wantedProgram);
         }
       } 
@@ -63,9 +60,9 @@ async function FillTvPrograms(category) {
       }
 
       const closeModalImg = document.querySelector(".close-modal");
-      closeModalImg.addEventListener("click", () => {
+      closeModalImg.addEventListener("click", () => { // if user clicks the close icon, close the modal
         popupModal.style.display = "none";
-        body.classList.remove("disable-scroll");
+        EnableScroll();
       });
     });
   });
@@ -87,6 +84,42 @@ function SetDefaultTvChannel() {
 const GetPrograms = async () => {
   return await ReadData();
 };
+
+function DisableScroll() {
+  const body = document.querySelector("body");
+  body.classList.add("disable-scroll");
+}
+
+function EnableScroll() {
+  const body = document.querySelector("body");
+  body.classList.remove("disable-scroll");
+}
+
+function FindProgramById(tvPrograms, e) {
+  return tvPrograms.find(
+    (el) => el?.id === Number(e.currentTarget.dataset.id)
+  )
+}
+
+function AddProgramsToContainer(tvPrograms, tvProgramContainer) {
+  tvPrograms.forEach((program) => {
+    if (program) {
+      // create programInstance and add it to the container
+      const programInstance = document.createElement("div");
+      programInstance.innerHTML = `
+        <a class="tv-program-item dump-tv-item" data-id="${program.id}">
+          <h4 class="time">${program?.start_date}-${program?.start_time}</h4>
+          <h4 class="category">${program?.category}</h4>
+          <h4 class="program-name">${program?.name}</h4>
+          <h4 class="replay">${
+            program?.is_replay === "Da" ? "Repriza" : ""
+          }</h4>
+        </a>
+      `;
+      tvProgramContainer.append(programInstance);
+    }
+  });
+}
 
 const FillInTheModal = (element, program) => {
   element.innerHTML = `
@@ -142,25 +175,7 @@ const FillInTheModal = (element, program) => {
   return element;
 };
 
-function AddProgramsToContainer(tvPrograms, tvProgramContainer) {
-  tvPrograms.forEach((program) => {
-    if (program) {
-      // create programInstance and add it to the container
-      const programInstance = document.createElement("div");
-      programInstance.innerHTML = `
-        <a class="tv-program-item dump-tv-item" data-id="${program.id}">
-          <h4 class="time">${program?.start_date}-${program?.start_time}</h4>
-          <h4 class="category">${program?.category}</h4>
-          <h4 class="program-name">${program?.name}</h4>
-          <h4 class="replay">${
-            program?.is_replay === "Da" ? "Repriza" : ""
-          }</h4>
-        </a>
-      `;
-      tvProgramContainer.append(programInstance);
-    }
-  });
-}
+
 
 
 
