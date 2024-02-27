@@ -158,6 +158,24 @@
     <section class="admin-panel">
 
         <h2 class="subtitle">Admin panel</h2>
+
+        <div class="change-pin">
+            <label for="old-pin">Stari PIN</label>
+            <input type="number" placeholder="4-8 znamenki">
+
+            <label for="new-pin">Novi PIN</label>
+            <input type="number" placeholder="4-8 znamenki">
+
+            <label for="confirm-pin">Potvrdi novi PIN</label>
+            <input type="number" placeholder="4-8 znamenki">
+
+            <button id="check-pin-button">OK</button>
+            <p id="pin-check-error"></p>
+            <hr>
+        </div>
+
+
+
         <div class="add-new-content">
 
             <label for="show-name">Ime emisije</label>
@@ -217,9 +235,7 @@
         </div>
     </section>
 
-
-    <br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+    <br><br><br><br><br><br><br><br><br><br><br><br>
     <script src="./scripts/header.js"></script>
     <script src="./scripts/check-pin.js" type="module"></script>
     <script src="./scripts/preview-details.js" type="module"></script>

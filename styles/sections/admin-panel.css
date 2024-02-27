@@ -6,6 +6,34 @@
     justify-content: center;
 }
 
+.change-pin{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+}
+.change-pin input{
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid var(--dark-blue);
+}
+.change-pin label{
+    font-family: "Fuse-text";
+    font-size: 20px;
+}
+.change-pin hr{
+    width: 50%;
+    margin-top: 50px;
+}
+.change-pin button{
+    padding: 10px 25px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
 .add-new-content{
     display: flex;
     align-items: center;
@@ -15,7 +43,7 @@
     gap: 5px;
     margin-top: 20px;
 }
-.add-new-content label{
+.add-new-content{
     font-family: "Fuse-text";
     font-size: 20px;
 }
