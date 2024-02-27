@@ -68,6 +68,11 @@
     border-radius: 2px;
     align-items: center;
     justify-content: space-between;
+    cursor: pointer;
+}
+.tv-program-item:hover{
+    background-color: #fff8f8;
+    border: 2px solid #fff8f8;
 }
 .time, .category, .program-name, .replay{
     width: 25%;
