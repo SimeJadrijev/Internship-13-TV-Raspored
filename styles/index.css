@@ -9,6 +9,7 @@
 @import "./sections/schedules.css";
 @import "./sections/admin-panel.css";
 @import "./sections/popup.css";
+@import "./sections/pin-check.css";
 
 
 *{

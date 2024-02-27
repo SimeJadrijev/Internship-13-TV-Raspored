@@ -12,6 +12,18 @@
     justify-content: center;
     flex-direction: column;
     width: 80%;
+    gap: 5px;
+    margin-top: 20px;
+}
+.add-new-content label{
+    font-family: "Fuse-text";
+    font-size: 20px;
+}
+.add-new-content input:not([type="radio"]){
+    width: 50%;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid var(--dark-blue);
 }
 
 .channel-choice{

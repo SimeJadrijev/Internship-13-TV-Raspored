@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", () => {
   
   const channelOptions = document.querySelectorAll(".channel-option");
   channelOptions[0].classList.add("channel-option-active");
-
 })
 
 const channelOptions = document.querySelectorAll(".channel-option"); 
@@ -46,7 +45,6 @@ async function FillTvPrograms(category) {
 
   tvPrograms.forEach(program => {
     if (program) {
-
       const programInstance = document.createElement("div");
       programInstance.innerHTML = `
         <a class="tv-program-item dump-tv-item" data-id="${program.id}">
@@ -59,12 +57,14 @@ async function FillTvPrograms(category) {
   
       tvProgramContainer.append(programInstance); 
 
-    }      
+    }    
+    
   });
 
   const programItems = document.querySelectorAll(".tv-program-item");
   programItems.forEach( (program) => {
     program.addEventListener("click", async (e) => {
+
       let popupModal = document.querySelector(".popup");
       
       popupModal.style.display = "flex";
@@ -145,6 +145,33 @@ async function ReadData() {
   
   return programs;
 }
+
+async function CheckPin(pin) {
+  pin = Number(pin);
+  const pinCheckElement = document.querySelector(".pin-check");
+  const sendPinButton = document.getElementById("send-pin");
+  const closeModalButton = document.querySelector(".pin-check div img");
+
+  closeModalButton.addEventListener("click", () => {
+    pinCheckElement.style.display = "none";
+  })
+
+  pinCheckElement.style.display = "flex";
+  sendPinButton.addEventListener("click", () => {
+    const inputElement = document.getElementById("pinInput");
+    const userInput = inputElement.value;
+    if (Number(userInput) === pin){
+      pinCheckElement.style.display = "none";
+      return true;
+    }
+  })
+}
+
+async function CheckIfProgramIsProtected() {
+  programs = ReadData();
+  console.log(programs);
+}
+
 
 
 // document.addEventListener("DOMContentLoaded", () => {

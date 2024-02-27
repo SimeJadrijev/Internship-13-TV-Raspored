@@ -11,7 +11,7 @@
         "description": "Tjedni pregled su informativne vijesti koje prolaze sve relevantne događaje prethodnog tjedna u Hrvatskoj i svijetu.",
         "channel": "Dump TV",
         "rating": 4,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
