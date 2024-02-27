@@ -3,6 +3,7 @@
     --dark-blue: #015587;
     --darker-blue: #00446c;
     --light-blue: #01B2FF;
-    --black: --black;
+    --black: black;
     --gray: #e5e5e5;
+    --blue-gradient:  linear-gradient(135deg, #015587, #00446c, #01B2FF);
 }
