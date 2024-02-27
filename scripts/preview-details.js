@@ -5,14 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const channelOptions = document.querySelectorAll(".channel-option");
   channelOptions[0].classList.add("channel-option-active");
 
-  // const tvPrograms = document.querySelectorAll(".tv-program a");
-  // tvPrograms.forEach( (el) => {
-  //   el.addEventListener("click", async () => {
-  //     const popupModal = document.querySelector(".popup");
-      
-  //     // popupModal.style.display = "flex";
-  //   })
-  // })
 })
 
 const channelOptions = document.querySelectorAll(".channel-option"); 
@@ -33,9 +25,15 @@ channelOptions.forEach(option => {
 
 });
 
+const GetPrograms = async () => {
+
+  return programs = await ReadData();
+
+};
+
 async function FillTvPrograms(category) {
 
-  const programs = await ReadData();
+  const programs = await GetPrograms();
 
   const tvProgramContainer = document.querySelector(".tv-program");
   tvProgramContainer.innerHTML = "";
@@ -51,7 +49,7 @@ async function FillTvPrograms(category) {
 
       const programInstance = document.createElement("div");
       programInstance.innerHTML = `
-        <a class="tv-program-item dump-tv-item">
+        <a class="tv-program-item dump-tv-item" data-id="${program.id}">
           <h4 class="time">${program?.start_date}-${program?.start_time}</h4>
           <h4 class="category">${program?.category}</h4>
           <h4 class="program-name">${program?.name}</h4>
@@ -63,7 +61,89 @@ async function FillTvPrograms(category) {
 
     }      
   });
+
+  const programItems = document.querySelectorAll(".tv-program-item");
+  programItems.forEach( (program) => {
+    program.addEventListener("click", async (e) => {
+      let popupModal = document.querySelector(".popup");
+      
+      popupModal.style.display = "flex";
+      const body = document.querySelector("body");
+      body.classList.add("disable-scroll");
+
+      const wantedProgram = tvPrograms.find(el => el?.id === Number(e.currentTarget.dataset.id));
+
+      popupModal = FillInTheModal(popupModal, wantedProgram);
+
+      const closeModalImg = document.querySelector(".close-modal");
+      closeModalImg.addEventListener("click", () =>{
+        popupModal.style.display = "none";
+        body.classList.remove("disable-scroll");
+      })
+    })
+  })
   
+}
+
+const FillInTheModal = (element, program) => {
+  element.innerHTML = `
+  <div class="popup-top">
+  <img class="close-modal" src="./assets/svg/close.svg" alt="close icon">
+  </div>
+  <div class="popup-bottom">
+    <h3>
+        <span class="popup-starting-property">
+            Ime:
+        </span> 
+        ${program.name}
+    </h3>
+    <h3>
+        <span class="popup-starting-property">
+            Kategorija:
+        </span> 
+        ${program.category}
+    </h3>
+    <h3>
+        <span class="popup-starting-property">
+            Početak:
+        </span> 
+        ${program.start_date} - ${program.start_time}
+    </h3>
+    <h3>
+        <span class="popup-starting-property">
+            Kraj:
+        </span> 
+        ${program.end_date} - ${program.end_time}
+    </h3>
+    <h3>
+        <span class="popup-starting-property">
+            Opis:
+        </span> 
+        ${program.description}
+    </h3>
+    <h3>
+        <span class="popup-starting-property">
+            Repriza:
+        </span> 
+        ${program?.is_replay}
+    </h3>
+    <h3>
+        <span class="popup-starting-property">
+            Kanal:
+        </span> 
+        ${program.channel}
+    </h3>
+
+  </div>
+  `
+  return element;
+}
+  
+async function ReadData() {
+  const response = await fetch("./data.json");
+  const programs = await response.json();
+  
+  return programs;
 }
 
 
@@ -126,65 +206,6 @@ async function FillTvPrograms(category) {
 //--------------------------------
 //popup example
 
-const FillInTheModal = (element, program) => {
-  element.innerHTML = `
-  <div class="popup-top">
-  <img src="./assets/svg/close.svg" alt="close icon">
-  </div>
-  <div class="popup-bottom">
-    <h3>
-        <span class="popup-starting-property">
-            Ime:
-        </span> 
-        ${program.name}
-    </h3>
-    <h3>
-        <span class="popup-starting-property">
-            Kategorija:
-        </span> 
-        ${program.category}
-    </h3>
-    <h3>
-        <span class="popup-starting-property">
-            Početak:
-        </span> 
-        ${program.start_date} - ${program.start_time}
-    </h3>
-    <h3>
-        <span class="popup-starting-property">
-            Kraj:
-        </span> 
-        ${program.end_date} - ${program.end_time}
-    </h3>
-    <h3>
-        <span class="popup-starting-property">
-            Opis:
-        </span> 
-        ${program.description}
-    </h3>
-    <h3>
-        <span class="popup-starting-property">
-            Repriza:
-        </span> 
-        ${program.replay}
-    </h3>
-    <h3>
-        <span class="popup-starting-property">
-            Kanal:
-        </span> 
-        ${program.channel}
-    </h3>
 
-  </div>
-  `
-  return element;
-}
-  
-async function ReadData() {
-  const response = await fetch("./data.json");
-  const programs = await response.json();
-  console.log(programs);
-  return programs;
-}
 
 
