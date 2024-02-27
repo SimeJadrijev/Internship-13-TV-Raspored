@@ -30,9 +30,11 @@ document.addEventListener("DOMContentLoaded", async () => {
   
       tvProgramContainer.append(programInstance); 
 
-    }
-      
+    }      
   });
+  
+  const channelOptions = document.querySelectorAll(".channel-option");
+  channelOptions[0].classList.add("channel-option-active");
 })
 
 function FillTvPrograms(programs, category) {
