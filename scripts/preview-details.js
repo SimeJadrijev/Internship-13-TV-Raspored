@@ -1,5 +1,4 @@
 import { CheckPin } from "./check-pin.js";
-import { pin } from "./change-pin.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   FillTvPrograms("Dump TV");
@@ -68,6 +67,7 @@ async function FillTvPrograms(category) {
     });
   });
 }
+
 
 // BASIC FUNCTIONS
 async function ReadData() {
@@ -170,13 +170,25 @@ const FillInTheModal = (element, program) => {
         </span> 
         ${program.channel}
     </h3>
+    <h3>
+        <span class="popup-starting-property">
+            Dodaj u watchlist:
+        </span> 
+        <button id="add-to-watchlist-button">Dodaj</button>
+    </h3>
+    <h3 id="user-rating-container">
+        <span class="popup-starting-property">
+            Ocjena:
+        </span> 
+        <input type="number" id="user-rating">
+        <button id="confirm-rating">OK</button>
+        <p id="rating-error-description"></p>
+    </h3>
 
   </div>
   `;
   return element;
 };
 
-
-export let pin;
 
 

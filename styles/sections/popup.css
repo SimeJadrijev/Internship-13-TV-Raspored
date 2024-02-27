@@ -4,7 +4,7 @@
     background: var(--blue-gradient);
     position: fixed;
     width: 50%;
-    height: 40%;
+    height: 48%;
     top: 30%;
     /* top: 5rem; */
     left: 50%;
@@ -59,11 +59,21 @@
     overflow: hidden;
 }
 
+#user-rating{
+    background-color: transparent;
+    border: 1px solid var(--white);
+}
+
 @media only screen and (min-width: 375px) and (max-width: 768px) {
     .popup{
-        height: 70%;
+        height: 80%;
+        width: 75%;
         top: 20%;
     }
+    #user-rating-container{
+        max-width: 90%;
+    }
+    
 }
 
 @media only screen and (min-width: 769px) and (max-width: 1100px) {
