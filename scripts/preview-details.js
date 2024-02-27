@@ -1,57 +1,37 @@
+import { CheckPin } from "./check-pin.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   FillTvPrograms("Dump TV");
   SetDefaultTvChannel();
-  
 });
 
 
 const channelOptions = document.querySelectorAll(".channel-option");
 
 channelOptions.forEach((option) => {
-  option.addEventListener("click", (e) => {
-    const activeChannelOption = document.querySelector(
-      ".channel-option-active"
-    );
-    activeChannelOption.classList.remove("channel-option-active");
 
+  option.addEventListener("click", (e) => {
+    // highlight the tv channel whose programs are being shown
+    const activeChannelOption = document.querySelector(".channel-option-active");
+    activeChannelOption.classList.remove("channel-option-active");
     e.currentTarget.classList.add("channel-option-active");
 
     const currentCategory = e.currentTarget.dataset.type;
-    FillTvPrograms(`Dump ${currentCategory}`);
+    FillTvPrograms(`Dump ${currentCategory}`);  //show the programs of that (chosen) tv channel
   });
 });
-
-const GetPrograms = async () => {
-  return (programs = await ReadData());
-};
 
 async function FillTvPrograms(category) {
   const programs = await GetPrograms();
 
   const tvProgramContainer = document.querySelector(".tv-program");
-  tvProgramContainer.innerHTML = "";
+  tvProgramContainer.innerHTML = "";  //delete the previous tv programs from the container
 
   const tvPrograms = programs.map((program) => {
-    return program.channel === category ? program : null;
+    return program.channel === category ? program : null; // if the program is NOT supposed to be shown on that tv channel, mark it as null
   });
 
-  tvPrograms.forEach((program) => {
-    if (program) {
-      const programInstance = document.createElement("div");
-      programInstance.innerHTML = `
-        <a class="tv-program-item dump-tv-item" data-id="${program.id}">
-          <h4 class="time">${program?.start_date}-${program?.start_time}</h4>
-          <h4 class="category">${program?.category}</h4>
-          <h4 class="program-name">${program?.name}</h4>
-          <h4 class="replay">${
-            program?.is_replay === "Da" ? "Repriza" : ""
-          }</h4>
-        </a>
-      `;
-
-      tvProgramContainer.append(programInstance);
-    }
-  });
+  AddProgramsToContainer(tvPrograms, tvProgramContainer);
 
   const programItems = document.querySelectorAll(".tv-program-item");
   programItems.forEach((program) => {
@@ -90,6 +70,23 @@ async function FillTvPrograms(category) {
     });
   });
 }
+
+// BASIC FUNCTIONS
+async function ReadData() {
+  const response = await fetch("./data.json");
+  const programs = await response.json();
+
+  return programs;
+}
+
+function SetDefaultTvChannel() {
+  const channelOptions = document.querySelectorAll(".channel-option");
+  channelOptions[0].classList.add("channel-option-active");
+}
+
+const GetPrograms = async () => {
+  return await ReadData();
+};
 
 const FillInTheModal = (element, program) => {
   element.innerHTML = `
@@ -145,110 +142,25 @@ const FillInTheModal = (element, program) => {
   return element;
 };
 
-async function ReadData() {
-  const response = await fetch("./data.json");
-  const programs = await response.json();
-
-  return programs;
-}
-
-function CheckPin(pin) {
-  return new Promise((resolve, reject) => {
-    pin = Number(pin);
-    const pinCheckElement = document.querySelector(".pin-check");
-    const sendPinButton = document.getElementById("send-pin");
-    const closeModalButton = document.querySelector(".pin-check div img");
-    const body = document.querySelector("body");
-
-    closeModalButton.addEventListener("click", () => {
-      pinCheckElement.style.display = "none";
-      reject(new Error("Pin nije unesen"));
-    });
-
-    pinCheckElement.style.display = "flex";
-    body.classList.add("disable-scroll");
-
-    sendPinButton.addEventListener("click", () => {
-      const inputElement = document.getElementById("pinInput");
-      const userInput = inputElement.value;
-
-      if (Number(userInput) === pin) {
-        pinCheckElement.style.display = "none";
-        inputElement.value = "";
-        body.classList.add("disable-scroll");
-        resolve(true);
-      } else {
-        inputElement.value = "";
-        reject(new Error("Pogrešan pin"));
-      }
-    });
+function AddProgramsToContainer(tvPrograms, tvProgramContainer) {
+  tvPrograms.forEach((program) => {
+    if (program) {
+      // create programInstance and add it to the container
+      const programInstance = document.createElement("div");
+      programInstance.innerHTML = `
+        <a class="tv-program-item dump-tv-item" data-id="${program.id}">
+          <h4 class="time">${program?.start_date}-${program?.start_time}</h4>
+          <h4 class="category">${program?.category}</h4>
+          <h4 class="program-name">${program?.name}</h4>
+          <h4 class="replay">${
+            program?.is_replay === "Da" ? "Repriza" : ""
+          }</h4>
+        </a>
+      `;
+      tvProgramContainer.append(programInstance);
+    }
   });
 }
 
-function SetDefaultTvChannel() {
-  const channelOptions = document.querySelectorAll(".channel-option");
-  channelOptions[0].classList.add("channel-option-active");
-}
 
-async function CheckIfProgramIsProtected() {
-  programs = ReadData();
-  console.log(programs);
-}
 
-// document.addEventListener("DOMContentLoaded", () => {
-//     const previewDetails = {};
-
-//     document.querySelectorAll(".tv-program a").forEach((el) => {
-//       el.addEventListener("mouseover", async () => {
-//         const previewDetailsEl = el.querySelector(".preview-tooltip");
-//         if (previewDetailsEl) {
-//           return;
-//         }
-
-//         console.log(el);
-
-//         if (!(el.href in previewDetailsEl)) {
-//           previewDetailsEl[el.href] = await getPreviewData(el.href);
-//         }
-
-//         el.insertAdjacentHTML(
-//           "beforeend",
-//           `<span class="preview-tooltip">
-//              <span>${previewDetailsEl[el.href].description}</span>
-//              <span>${previewDetailsEl[el.href].name}</span>
-//            </span>`
-//         );
-//       });
-//     });
-
-//     document.querySelectorAll(".tv-program a").forEach((el) => {
-//       el.addEventListener("mouseleave", () => {
-//         const previewTooltipEl = el.querySelector(".preview-tooltip");
-//         if (previewTooltipEl) {
-//           previewTooltipEl.remove();
-//         }
-//       });
-//     });
-//   });
-
-//   const getPreviewData = (href) => {
-//     return new Promise((resolve, reject) => {
-//       fetch(href)
-//         .then((response) => {
-//           if (!response.ok) {
-//             throw new Error('Network response was not ok');
-//           }
-//           return response.json();
-//         })
-//         .then((data) => {
-//           const { title, date, time, category, replay, description } = data;
-//           resolve({ title, date, time, category, replay, description });
-//         })
-//         .catch((error) => {
-//           reject(error);
-//         });
-//     });
-//   };
-
-//--------------------------------
-//popup example
