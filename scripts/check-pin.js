@@ -8,6 +8,7 @@ function CheckPin(pin) {
   
       closeModalButton.addEventListener("click", () => {
         pinCheckElement.style.display = "none";
+        EnableScroll();
         reject(new Error("Pin nije unesen"));
       });
   
@@ -29,6 +30,11 @@ function CheckPin(pin) {
         }
       });
     });
+}
+
+function EnableScroll() {
+  const body = document.querySelector("body");
+  body.classList.remove("disable-scroll");
 }
 
 export {CheckPin}
