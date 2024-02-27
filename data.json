@@ -41,7 +41,7 @@
         "description": "Informativna emisija koja prolazi teme povezane umjetnoj inteligenciji, to jest, njenu povijest i primjenu.",
         "channel": "Dump TV",
         "rating": 2,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -86,7 +86,7 @@
         "description": "Podcast emisija u kojoj govornici svakodnevno diskutiraju o aktualnim trendovima u svijetu dizajna.",
         "channel": "Dump TV",
         "rating": 4,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -116,7 +116,7 @@
         "description": "Informativne vijesti u večernjem terminu koje rezimiraju sve relevantne vijesti tog dana.",
         "channel": "Dump TV",
         "rating": 2,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -131,7 +131,7 @@
         "description": "Informativna emisija koja prolazi razne multimedijske teme poput aktualnih trendova u svijetu kamere.",
         "channel": "Dump TV",
         "rating": 5,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -146,7 +146,7 @@
         "description": "Informativne vijesti koje prolaze sve relevantne teme za prethodni tjedan.",
         "channel": "Dump TV",
         "rating": 1,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -176,7 +176,7 @@
         "description": "Košarkaška utakmica regularne sezone u NBA ligi između Dallas Mavsa i Golden State Warriorsa",
         "channel": "Dump Sport",
         "rating": 4,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -191,7 +191,7 @@
         "description": "Informativna emisija koja nakon NBA utakmica analizira stanje u ligi uz stručne komentatore i voditelje",
         "channel": "Dump Sport",
         "rating": 2,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -206,7 +206,7 @@
         "description": "Vijesti koje prolaze sve relevantne događaje iz svijeta sporta, kako iz Hrvatske, tako i svijeta.",
         "channel": "Dump Sport",
         "rating": 5,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -221,7 +221,7 @@
         "description": "Vaterpolo utakmica četvrtfinala svjetskog prvenstva u Dohi.",
         "channel": "Dump Sport",
         "rating": 1,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -236,7 +236,7 @@
         "description": "Nogometna utakmica 22. kola engleske Premier lige između Chelseaja i Man Uniteda",
         "channel": "Dump Sport",
         "rating": 3,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -251,7 +251,7 @@
         "description": "Podcast emisija koja redovno ugošćuje poznate sportaše i sportske djelatnike. U ovom izdanju stiže naš proslavljeni tenisač Marin Čilić.",
         "channel": "Dump Sport",
         "rating": 4,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -266,7 +266,7 @@
         "description": "Teniski susreti polufinala s američkog Grand Slam turnira - US Opena.",
         "channel": "Dump Sport",
         "rating": 2,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -281,7 +281,7 @@
         "description": "Najprestižnija atletska liga u ovom izdanju održava se u Rimu.",
         "channel": "Dump Sport",
         "rating": 5,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -311,7 +311,7 @@
         "description": "Američka epska romansa snimljena po istinitom događaju o potopu poznatog broda.",
         "channel": "Dump Culture",
         "rating": 3,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -341,7 +341,7 @@
         "description": "Snimka predstave popularne tragedije Williama Shakespearea.",
         "channel": "Dump Culture",
         "rating": 2,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -356,7 +356,7 @@
         "description": "Snimka poznatog festivala dance i techno glazbe, ujedno najveći i najpoznatiji takve vrste na svijetu",
         "channel": "Dump Culture",
         "rating": 5,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -416,7 +416,7 @@
         "description": "Dokumentarac o prvom i jedinom zabilježenom pohodu čovjeka na Mjesec.",
         "channel": "Dump Culture",
         "rating": 5,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -446,7 +446,7 @@
         "description": "Informativna emisija o osnovama popularnog alata za dizajn - Figma",
         "channel": "Dump Premium",
         "rating": 4,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -461,7 +461,7 @@
         "description": "Kadrovi iza scene najveće studentske IT konferencije u Hrvatskoj (2023.)",
         "channel": "Dump Premium",
         "rating": 3,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
@@ -536,7 +536,7 @@
         "description": "Dumpov podcast u kojem ovog puta gost voditelj ovogodišnjeg Internshipa - Bartol Deak",
         "channel": "Dump Premium",
         "rating": 2,
-        "for_children": false,
+        "for_children": true,
         "in_watchlist": false
     },
     {
