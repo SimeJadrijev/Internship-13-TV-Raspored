@@ -1,4 +1,5 @@
 import { CheckPin } from "./check-pin.js";
+import { pin } from "./change-pin.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   FillTvPrograms("Dump TV");
@@ -176,6 +177,6 @@ const FillInTheModal = (element, program) => {
 };
 
 
-
+export let pin;
 
 
