@@ -39,6 +39,7 @@ async function FillTvPrograms(category) {
       let popupModal = document.querySelector(".popup");
 
       const wantedProgram = FindProgramById(tvPrograms, e);
+      console.log(wantedProgram.rating);
 
       let pin = 1111;
       try {
@@ -48,13 +49,14 @@ async function FillTvPrograms(category) {
             popupModal.style.display = "flex";
             popupModal = FillInTheModal(popupModal, wantedProgram);
           }
-        } 
+        }
         else {    // if the program is labeled as "for children", procede to show the popup modal without the pin
-          popupModal.style.display = "flex";  
+          popupModal.style.display = "flex";
           DisableScroll();
           popupModal = FillInTheModal(popupModal, wantedProgram);
         }
-      } 
+        ChangeRating(wantedProgram);
+      }
       catch (error) {
         console.error(error);
       }
@@ -69,61 +71,60 @@ async function FillTvPrograms(category) {
 }
 
 
-// BASIC FUNCTIONS
-async function ReadData() {
-  const response = await fetch("./data.json");
-  const programs = await response.json();
+  // BASIC FUNCTIONS
+  async function ReadData() {
+    const response = await fetch("./data.json");
+    const programs = await response.json();
 
-  return programs;
-}
+    return programs;
+  }
 
-function SetDefaultTvChannel() {
-  const channelOptions = document.querySelectorAll(".channel-option");
-  channelOptions[0].classList.add("channel-option-active");
-}
+  function SetDefaultTvChannel() {
+    const channelOptions = document.querySelectorAll(".channel-option");
+    channelOptions[0].classList.add("channel-option-active");
+  }
 
-const GetPrograms = async () => {
-  return await ReadData();
-};
+  const GetPrograms = async () => {
+    return await ReadData();
+  };
 
-function DisableScroll() {
-  const body = document.querySelector("body");
-  body.classList.add("disable-scroll");
-}
+  function DisableScroll() {
+    const body = document.querySelector("body");
+    body.classList.add("disable-scroll");
+  }
 
-function EnableScroll() {
-  const body = document.querySelector("body");
-  body.classList.remove("disable-scroll");
-}
+  function EnableScroll() {
+    const body = document.querySelector("body");
+    body.classList.remove("disable-scroll");
+  }
 
-function FindProgramById(tvPrograms, e) {
-  return tvPrograms.find(
-    (el) => el?.id === Number(e.currentTarget.dataset.id)
-  )
-}
+  function FindProgramById(tvPrograms, e) {
+    return tvPrograms.find(
+      (el) => el?.id === Number(e.currentTarget.dataset.id)
+    )
+  }
 
-function AddProgramsToContainer(tvPrograms, tvProgramContainer) {
-  tvPrograms.forEach((program) => {
-    if (program) {
-      // create programInstance and add it to the container
-      const programInstance = document.createElement("div");
-      programInstance.innerHTML = `
+  function AddProgramsToContainer(tvPrograms, tvProgramContainer) {
+    tvPrograms.forEach((program) => {
+      if (program) {
+        // create programInstance and add it to the container
+        const programInstance = document.createElement("div");
+        programInstance.innerHTML = `
         <a class="tv-program-item dump-tv-item" data-id="${program.id}">
           <h4 class="time">${program?.start_date}-${program?.start_time}</h4>
           <h4 class="category">${program?.category}</h4>
           <h4 class="program-name">${program?.name}</h4>
-          <h4 class="replay">${
-            program?.is_replay === "Da" ? "Repriza" : ""
+          <h4 class="replay">${program?.is_replay === "Da" ? "Repriza" : ""
           }</h4>
         </a>
       `;
-      tvProgramContainer.append(programInstance);
-    }
-  });
-}
+        tvProgramContainer.append(programInstance);
+      }
+    });
+  }
 
-const FillInTheModal = (element, program) => {
-  element.innerHTML = `
+  const FillInTheModal = (element, program) => {
+    element.innerHTML = `
   <div class="popup-top">
   <img class="close-modal" src="./assets/svg/close.svg" alt="close icon">
   </div>
@@ -187,8 +188,45 @@ const FillInTheModal = (element, program) => {
 
   </div>
   `;
-  return element;
-};
+    return element;
+  };
+
+// ------------------------------------- doesn't work, but makes sense
+// function ChangeRating(wantedProgram) {
+//   const confirmRatingButton = document.getElementById("confirm-rating");
+//   confirmRatingButton.addEventListener("click", () => {
+//     const userInputRating = document.getElementById("user-rating").value;
+//     const programId = wantedProgram.id;
+
+//     if (!isNaN(userInputRating)) {
+//       const newRating = Number(userInputRating);
+//       UpdateProgramRating(programId, newRating); 
+//     } else {
+//       document.getElementById("rating-error-description").textContent = "Molimo unesite broj.";
+//     }
+//   });
+// }
+// function UpdateProgramRating(programId, newRating) {
+//   fetch("./data.json")
+//     .then(response => response.json())
+//     .then(programs => {
+//       const programToUpdate = programs.find(program => program.id === programId);
+//       if (programToUpdate) {
+//         programToUpdate.rating = newRating;
+//         SaveUpdatedPrograms(programs);
+//       } 
+//       else
+//         console.error("Program nije pronađen.");
+//     })
+//     .catch(error => console.error("Greška prilikom ažuriranja ocjene programa:", error));
+// }
+
+// function SaveUpdatedPrograms(programs) {
+
+//     const jsonString = JSON.stringify(programs);
+//     localStorage.setItem("updatedPrograms", jsonString);
+//     console.log("Ocjena programa uspješno ažurirana lokalno.");
+// }
 
 
 
