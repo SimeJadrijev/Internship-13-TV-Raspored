@@ -68,8 +68,36 @@ async function FillTvPrograms(category) {
       });
     });
   });
+
+  const filterRatingButton = document.getElementById("filter-rating-button");
+  filterRatingButton.addEventListener("click", () => {
+    const selectedRating = document.getElementById("ratings-select").value;
+    FilterProgramsByRating(selectedRating);
+  });
 }
 
+async function FilterProgramsByRating(selectedRating) {
+  const programs = await GetPrograms();
+  const tvProgramContainer = document.querySelector(".tv-program");
+  tvProgramContainer.innerHTML = "";
+
+  programs.forEach( (program) => {
+    if (program && program.rating === Number(selectedRating))
+    {
+      const programInstance = document.createElement("div");
+      programInstance.innerHTML = `
+      <a class="tv-program-item dump-tv-item" data-id="${program.id}">
+        <h4 class="time">${program?.start_date}-${program?.start_time}</h4>
+        <h4 class="category">${program?.category}</h4>
+        <h4 class="program-name">${program?.name}</h4>
+        <h4 class="replay">${program?.is_replay === "Da" ? "Repriza" : ""
+        }</h4>
+      </a>
+      `;
+      tvProgramContainer.append(programInstance);
+    }
+  });
+}
 
   // BASIC FUNCTIONS
   async function ReadData() {
@@ -103,6 +131,7 @@ async function FillTvPrograms(category) {
       (el) => el?.id === Number(e.currentTarget.dataset.id)
     )
   }
+
 
   function AddProgramsToContainer(tvPrograms, tvProgramContainer) {
     tvPrograms.forEach((program) => {
